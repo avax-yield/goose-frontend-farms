@@ -38,7 +38,10 @@ const CardBottomContent = styled.div`
   justify-content:space-between;
   flex:1 1;
   .cardContent{
-
+  }
+  .textTitle{
+    color:#fff;
+    font-size:12px;
   }
 `
 
@@ -128,13 +131,13 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
       return null
     }
     if (farm.quoteTokenSymbol === QuoteToken.BNB) {
-      return bnbPrice.times(farm.lpTotalInQuoteToken)
+      return null // bnbPrice.times(farm.lpTotalInQuoteToken)
     }
     if (farm.quoteTokenSymbol === QuoteToken.CAKE) {
       return cakePrice.times(farm.lpTotalInQuoteToken)
     }
     return farm.lpTotalInQuoteToken
-  }, [bnbPrice, cakePrice, farm.lpTotalInQuoteToken, farm.quoteTokenSymbol])
+  }, [/* bnbPrice, */ cakePrice, farm.lpTotalInQuoteToken, farm.quoteTokenSymbol])
 
   const totalValueFormated = totalValue
     ? `$${Number(totalValue).toLocaleString(undefined, { maximumFractionDigits: 0 })}`
@@ -160,20 +163,22 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
         farmImage={farmImage}
         tokenSymbol={farm.tokenSymbol}
         farmAPY={farmAPY}
+        firstTokenImage={farm.firstTokenImage}
+        secondTokenImage={farm.secondTokenSymbol}
       />
       <CardBottomContent>
         <div className="cardContent">
-          <Text style={{ fontSize: '12px' }}>{TranslateString(318, 'Earn')}:</Text>
+          <Text className="textTitle">{TranslateString(318, 'Earn')}:</Text>
           <Text bold style={{ fontSize: '20px', color: '#30BAC6' }}>{earnLabel}</Text>
         </div>
         <div className="cardContent">
-          <Text style={{ fontSize: '12px' }}>{TranslateString(10001, 'Deposit Fee')}:</Text>
+          <Text className="textTitle">{TranslateString(10001, 'Deposit Fee')}:</Text>
           <Text bold style={{ fontSize: '20px', color: '#30BAC6' }}>{(farm.depositFeeBP / 100)}%</Text>
         </div>
       </CardBottomContent>
       <CardBottomContent>
         <div className="cardContent">
-          <Text style={{ fontSize: '12px' }}>Rewards Earned</Text>
+          <Text className="textTitle">Rewards Earned</Text>
           <Text bold style={{ fontSize: '20px', color: '#30BAC6' }}>3,534 HIGH</Text>
         </div>
         <div>
@@ -183,7 +188,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
 
       <CardBottomContent>
         <div className="cardContent">
-          <Text style={{ fontSize: '12px' }}>BLISS Deposited</Text>
+          <Text className="textTitle">BLISS Deposited</Text>
           <Text bold style={{ fontSize: '20px', color: '#30BAC6' }}>12,342</Text>
         </div>
         <div>

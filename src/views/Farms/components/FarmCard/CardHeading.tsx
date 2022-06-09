@@ -11,7 +11,8 @@ export interface ExpandableSectionProps {
   farmImage?: string
   tokenSymbol?: string
   farmAPY?: string
-
+  firstTokenImage?: string
+  secondTokenImage?: string
 }
 
 const Wrapper = styled(Flex)`
@@ -43,6 +44,10 @@ const MultiplierTag = styled(Tag)`
   margin-left: 4px;
 `
 
+const HeadingWrapper = styled(Heading)`
+  color:#fff;
+`
+
 const CardHeading: React.FC<ExpandableSectionProps> = ({
   lpLabel,
   multiplier,
@@ -51,12 +56,16 @@ const CardHeading: React.FC<ExpandableSectionProps> = ({
   tokenSymbol,
   depositFee,
   farmAPY,
+  firstTokenImage,
+  secondTokenImage,
 }) => {
   return (
     <Wrapper justifyContent="space-between" alignItems="left" mb="12px" flexDirection="column">
         <Flex flexDirection="row" alignItems="flex-end" justifyContent="space-between" >
-          <Heading mb="4px" >{lpLabel}</Heading>
-          <Image src={`/images/farms/${farmImage}.png`} alt={tokenSymbol} width={28} height={28} />
+          <HeadingWrapper mb="4px" >{lpLabel}</HeadingWrapper>
+          
+          {secondTokenImage && <img style={{ position: 'absolute', right: '30px', zIndex: 2}} src={`/images/tokens/${secondTokenImage}.png`} alt={tokenSymbol} width={38} height={38}/>}
+          <img style={{ position: 'absolute', right: '55px', zIndex: 1}} src={`/images/tokens/${firstTokenImage}.png`} alt={tokenSymbol} width={38} height={38}/>
         </Flex>
         <AprWrapper>
           {farmAPY}% APR
