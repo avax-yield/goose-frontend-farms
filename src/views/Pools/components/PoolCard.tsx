@@ -312,8 +312,8 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
             </Flex>
           )}
           <Flex justifyContent="flex-start">
-            <Link external href={`https://bscscan.com/token/${stakingTokenAddress[process.env.REACT_APP_CHAIN_ID]}`} bold={false}>
-              {TranslateString(356, 'View on BscScan')}
+            <Link external href={`https://snowtrace.io/token/${stakingTokenAddress[process.env.REACT_APP_CHAIN_ID]}`} bold={false}>
+              {TranslateString(356, 'View on snowtrace')}
             </Link>
           </Flex>
         </DetailsWrapper>
