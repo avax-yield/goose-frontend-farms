@@ -51,7 +51,7 @@ const DetailsSection: React.FC<ExpandableSectionProps> = ({
   return (
     <Wrapper>
       <Flex justifyContent="space-between">
-        <Text>{TranslateString(316, 'Stake')}:</Text>
+        <Text>{TranslateString(316, 'Deposit')}:</Text>
         <StyledLinkExternal href={
           isTokenOnly ?
             `https://app.pangolin.exchange/#/swap/${tokenAddresses[process.env.REACT_APP_CHAIN_ID]}`

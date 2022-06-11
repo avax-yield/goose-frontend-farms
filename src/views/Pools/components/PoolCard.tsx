@@ -298,11 +298,11 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
       <ExpandingWrapper expanded={showExpandableSection}>
         <DetailsWrapper>
           <Flex justifyContent="space-between">
-            <Text>{TranslateString(316, 'Stake')}:</Text>
+            <Text>{TranslateString(316, 'Deposit')}:</Text>
             <StyledLinkExternal href={
                 `https://app.pangolin.exchange/#/swap/${stakingTokenAddress[process.env.REACT_APP_CHAIN_ID]}`
             }>
-              {stakingTokenName}
+              {tokenName}
             </StyledLinkExternal>
           </Flex>
           {!isFinished && (
