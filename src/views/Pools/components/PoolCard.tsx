@@ -298,11 +298,11 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
       <ExpandingWrapper expanded={showExpandableSection}>
         <DetailsWrapper>
           <Flex justifyContent="space-between">
-            <Text>{TranslateString(316, 'Stake')}:</Text>
+            <Text>{TranslateString(316, 'Deposit')}:</Text>
             <StyledLinkExternal href={
                 `https://app.pangolin.exchange/#/swap/${stakingTokenAddress[process.env.REACT_APP_CHAIN_ID]}`
             }>
-              {stakingTokenName}
+              {tokenName}
             </StyledLinkExternal>
           </Flex>
           {!isFinished && (
@@ -312,8 +312,8 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
             </Flex>
           )}
           <Flex justifyContent="flex-start">
-            <Link external href={`https://bscscan.com/token/${stakingTokenAddress[process.env.REACT_APP_CHAIN_ID]}`} bold={false}>
-              {TranslateString(356, 'View on BscScan')}
+            <Link external href={`https://snowtrace.io/token/${stakingTokenAddress[process.env.REACT_APP_CHAIN_ID]}`} bold={false}>
+              {TranslateString(356, 'View on snowtrace')}
             </Link>
           </Flex>
         </DetailsWrapper>
